@@ -20,7 +20,23 @@ threeweibullpdf <- function(tvalue, alpha,beta, eta) {
 result <- threeweibullpdf(1, 0.5, 2,1.5)
 print(result)
 
+mean_of_threeweibull <- function(alpha, beta, eta) {
+  stopifnot(all(alpha >= 0), all(beta >= 0), all(eta >= 0))
+  result <- eta * (gamma(1 + (1 / beta))) + alpha
+  return(result)
+}
 
+# Test the function
+print(mean_of_threeweibull(1, 1, 1))
+
+
+variance_of_threeweibull<- function(alpha, beta, eta) {
+  stopifnot(all(alpha >= 0), all(beta >= 0), all(eta >= 0))
+  result <- (eta^2) * (gamma(1 + (2 / beta)) - (gamma(1 + (1 / beta)))^2) 
+  return(result)
+  
+}
+print(variance_of_threeweibull(1, 1, 1))
 
 Likeehoodthreeweibull<-function(tarray,alpha,beta, eta,n){
   stopifnot(alpha >= 0, beta >= 0, eta >= 0,n>0)
@@ -78,3 +94,41 @@ ggplot(df, aes(x, pdf, color = beta, linetype = beta)) +
   scale_color_manual(values = c("blue", "red", "green", "pink","lightblue","purple")) +
   scale_linetype_manual(values = c(1, 1, 1, 1,1,1,1)) +
   theme(legend.position = "topright")
+
+library(weibullness)
+
+inverse_of_threeweibull <- function(p, alpha, beta, eta) {
+  stopifnot(all(alpha >= 0), all(beta >= 0), all(eta >= 0))
+  quantile_value <- alpha + eta * (-log(1 - p))^(1/beta)
+  return(quantile_value)
+}
+
+datagenerator <- function(n, alpha, beta, eta) {
+  stopifnot(all(alpha >= 0), all(beta >= 0), all(eta >= 0), n > 0)
+  generateddata <- runif(n = n, min = 0, max = 1)
+  dataset <- c()
+  for (i in generateddata) {
+    xvalue <- inverse_of_threeweibull(i, alpha, beta, eta)
+    dataset <- append(dataset, xvalue)
+  }
+  return(dataset)
+}
+
+# Three-parameter Weibull
+datas <- datagenerator(1000, 1, 1, 1)  # Increase the sample size
+print(mean(datas))
+print(var(datas))
+print(mse(datas))
+# Fit Weibull distribution using MLE with error handling
+weibull_params <- tryCatch(
+  {
+    weibull.mle(datas)
+  },
+  error = function(e) {
+    message("Error during MLE estimation:", e)
+    NULL
+  }
+)
+
+# Display the estimated parameters
+print(weibull_params)

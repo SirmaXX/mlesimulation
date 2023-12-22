@@ -1,0 +1,60 @@
+
+@font-face {
+    font-family: abel-regular;
+    src: url("../fonts/abel/Abel-Regular.ttf");
+  }
+
+
+
+  html{ height: 100%; margin: 0px;     
+    font-family: abel-regular;
+    font-size: .875rem;
+    box-sizing: border-box;
+}
+
+body{
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+}
+
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+  .bg-image {
+    background-image: url("../img/logo1.jpg");
+  /* opacity: 0.3; */
+   height: 70vh;
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-size: contain;
+   
+  }
+
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+  .footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    text-align: center;
+  }

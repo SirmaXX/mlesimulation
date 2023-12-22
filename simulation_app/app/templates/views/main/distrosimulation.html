@@ -1,0 +1,49 @@
+{% extends "assets/layout.html" %}
+{% block body %}
+
+
+<div class=" container p-12">
+
+
+    <div class=" row p-12">
+
+        <h5>Three Weibull dist</h5>
+        <div class="col-md-6 col-sm-12">
+            <form method="post" action="/distrosimulation">
+                alpha <input type="number" class="form-control" step="any" name="alpha" required
+                    placeholder={{alpha}}><br>
+                beta<input type="number" class="form-control" step="any" name="beta" required placeholder={{beta}}><br>
+                eta <input type="number" class="form-control" step="any" name="eta" required placeholder={{eta}}><br>
+                <input type="submit" class="btn btn-primary" value="Gonder">
+            </form>
+        </div>
+        <div class="col-md-6 col-sm-12">
+
+            <canvas id="WeibullChart" style="width:100%;max-width:600px;"></canvas>
+        </div>
+
+    </div>
+<div class="row">
+    <h5>Makaledeki örnekler</h5>
+    <ul>
+        <li>alpha=0 ,beta=0.5,eta=1.5</li>
+        <li>alpha=0 ,beta=1,eta=1.5</li>
+        <li>alpha=0 ,beta=2,eta=1.5</li>
+        <li>alpha=0 ,beta=3,eta=1.5</li>
+        <li>alpha=0 ,beta=4,eta=1.5</li>
+        <li>alpha=0 ,beta=9,eta=1.5</li>
+    </ul>
+</div>
+
+</div>
+
+
+<script>
+
+    WeibullGraph("WeibullChart", {{ alpha }}, {{ beta }}, {{ eta }});
+
+</script>
+
+
+
+{% endblock %}

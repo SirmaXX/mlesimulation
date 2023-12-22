@@ -7,13 +7,13 @@
 
     <div class=" row p-12">
 
-        <h5>Three Weibull dist</h5>
+        <h5>3 parametreli weibul dağılımının grafiği</h5>
         <div class="col-md-6 col-sm-12">
             <form method="post" action="/distrosimulation">
-                alpha <input type="number" class="form-control" step="any" name="alpha" required
+                alpha <input type="number" class="form-control"  min="1" step="any" name="alpha" required
                     placeholder={{alpha}}><br>
-                beta<input type="number" class="form-control" step="any" name="beta" required placeholder={{beta}}><br>
-                eta <input type="number" class="form-control" step="any" name="eta" required placeholder={{eta}}><br>
+                beta<input type="number" class="form-control"  min="1" step="any" name="beta" required placeholder={{beta}}><br>
+                eta <input type="number" class="form-control"   min="1" step="any" name="eta" required placeholder={{eta}}><br>
                 <input type="submit" class="btn btn-primary" value="Gonder">
             </form>
         </div>

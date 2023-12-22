@@ -35,9 +35,12 @@ def inverse_of_threeweibull(p, alpha, beta, eta):
     quantile_value = alpha + eta * (-np.log(1 - p)) ** (1 / beta)
     return quantile_value
 
+
 def datagenerator(n, alpha, beta, eta):
     assert all(val >= 0 for val in [alpha, beta, eta]) and n > 0
     
     generated_data = np.random.uniform(0, 1, n)
     dataset = [inverse_of_threeweibull(i, alpha, beta, eta) for i in generated_data]
     return dataset
+
+

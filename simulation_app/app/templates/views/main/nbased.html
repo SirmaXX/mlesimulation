@@ -1,0 +1,73 @@
+{% extends "assets/layout.html" %}
+{% block body %}
+
+
+
+<div class=" container p-12">
+
+
+    <div class=" row p-12">
+
+        <h5 class="text-center">Merkezi limit teoremi</h5>
+        <p class="text-center" >n değeri arttıkça gerçek değere yakınsadığını göstermek için bu simulasyonu hazırlandı.</p>
+        <div class="col-md-6 col-sm-12">
+            <form method="post" action="/nsimulation">
+                n <input type="number" class="form-control" min="1" step="number" name="n" required
+                placeholder={{n}}><br>
+                alpha <input type="number" class="form-control" min="1" step="any" name="alpha" required
+                    placeholder={{alpha}}><br>
+                beta<input type="number" class="form-control" min="1" step="any" name="beta" required placeholder={{beta}}><br>
+                eta <input type="number" class="form-control" min="1" step="any" name="eta" required placeholder={{eta}}><br>
+                <input type="submit" class="btn btn-primary" value="Gonder">
+            </form>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col" colspan="6">3 parametreli weibul parametreleri</th>
+                  </tr>
+                </thead>
+                <tbody>
+                 
+                  <tr class="table-light">
+                    <td colspan="2">alpha</td>
+                    <td colspan="2">beta</td>
+                    <td colspan="2">eta</td>
+                  </tr>
+                  <tr class="table-light">
+                    <td colspan="2">{{ liste[1] }}</td>
+                    <td colspan="2">{{ liste[2] }}</td>
+                    <td colspan="2">{{ liste[3] }}</td>
+                  </tr>
+                  <tr class="table-dark">
+                    <td colspan="6">ana kütlenin özellikleri</td>
+                  </tr>
+                  <tr class="table-dark"> 
+                    <td colspan="3">ortalaması</td>
+                    <td colspan="3">varyansı</td>
+                  </tr>
+                  <tr class="table-dark">
+                    <td colspan="3">{{ liste[4] }}</td>
+                    <td colspan="3">{{ liste[5] }}</td>
+                  </tr>
+                  <tr class="table-secondary">
+                    <td colspan="6"> örnekleme ait {{ liste[0] }} tane üretilen verinin özellikleri</td>
+                  </tr>
+                  <tr class="table-secondary">
+                    <td colspan="3">ortalaması</td>
+                    <td colspan="3">varyansı</td>
+                  </tr>
+                  <tr class="table-secondary">
+                    <td colspan="3">{{ liste[6] }}</td>
+                    <td colspan="3">{{ liste[7] }}</td>
+                  </tr>
+                </tbody>
+                </table>
+           
+        </div>
+
+    </div>
+
+
+    {% endblock %}

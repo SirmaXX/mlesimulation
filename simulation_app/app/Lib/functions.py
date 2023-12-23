@@ -3,7 +3,7 @@ import numpy as np
 from scipy.stats import weibull_min
 import cma
 from scipy.stats import ks_2samp
-from scipy.optimize import minimize
+from scipy.optimize import minimize,curve_fit
 import math 
 
 def threeweibullcdf(tvalue, alpha, beta, eta):
@@ -144,5 +144,37 @@ def  mle_es_func(data,alpha,beta,eta):
   #  print("Optimized Parameters (MLE):", optimized_params[0])
     liste=[optimized_params[0],optimized_params[1],optimized_params[2],aic,ks_statistic,p_value]
     return liste
+ except Exception as e:
+    print("Error during optimization:", e)
+
+
+
+def  least_reg_func(data,alpha,beta,eta):
+ try:
+  initial_guess = [alpha,beta,eta]
+  # Perform least squares regression
+  optimized_params, covariance = curve_fit(pdf_threeweibull, data, np.zeros_like(data), p0=initial_guess)
+
+  # Print optimized parameters 
+  # print("Optimized Parameters (Least Squares):", optimized_params)
+  # Calculate AIC
+  residuals = data - pdf_threeweibull(data, *optimized_params)
+  #print("optimized parameters", optimized_params[0], optimized_params[1], optimized_params[2])
+  ssr = np.sum(residuals**2)
+  num_params = len(initial_guess)
+  n = len(data)
+  aic = n * np.log(ssr/n) + 2 * num_params
+  #print("AIC (Least Squares):", aic)
+  # Calculate K-S test statistic and p-value
+  sorted_data = np.sort(data)
+  cdf_data = np.linspace(0, 1, len(data))
+  cdf_model = np.cumsum(pdf_threeweibull(sorted_data, *optimized_params)) / np.sum(pdf_threeweibull(sorted_data, *optimized_params))
+  ks_statistic, p_value = ks_2samp(cdf_data, cdf_model)
+
+# Print K-S test result
+ #print("K-S Statistic:", ks_statistic)
+ #print("P-Value:", p_value)
+  liste=[optimized_params[0],optimized_params[1],optimized_params[2],aic,ks_statistic,p_value]
+  return liste
  except Exception as e:
     print("Error during optimization:", e)

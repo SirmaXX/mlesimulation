@@ -11,7 +11,7 @@
         <h5 class="text-center">Tahmin edicilerin simülasyonları</h5>
         <p class="text-center">Anlatılan tahmin edicilerin simülasyon değerleri</p>
         <div class="col-md-12 col-sm-12">
-            <form method="post" action="/nsimulation">
+            <form method="post" action="/estimators">
                 n <input type="number" class="form-control" min="1" step="number" name="n" required
                     placeholder={{n}}><br>
                 alpha <input type="number" class="form-control" min="0" step="any" name="alpha" required
@@ -20,13 +20,16 @@
                     placeholder={{beta}}><br>
                 eta <input type="number" class="form-control" min="0im" step="any" name="eta" required
                     placeholder={{eta}}><br>
-                <input type="submit" class="btn btn-primary" value="Gonder">
+                <input type="submit" class="btn btn-primary p-2" value="Gonder">
             </form>
+            <br>
         </div>
+        <br>
         <div class="col-md-12col-sm-12">
+            <h5 class="text-center">Sonuçlar</h5>
             <table class="table">
                 <thead>
-                    <tr>
+                    <tr class="table-dark">
                         <th>Method</th>
                         <th>alpha</th>
                         <th>beta</th>
@@ -40,21 +43,30 @@
 
                     <tr class="table-light">
                         <td>gercek deger</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{ liste[1] }}</td>
+                        <td>{{ liste[2] }}</td>
+                        <td>{{ liste[3] }}</td>
                         <td></td>
                         <td></td>
                         <td></td>
                     </tr>
                     <tr class="table-light">
+                        <td>mle</td>
+                        <td>{{ mleparameters[0] }}</td>
+                        <td>{{ mleparameters[1] }}</td>
+                        <td>{{ mleparameters[2] }}</td>
+                        <td>{{ mleparameters[3] }}</td>
+                        <td>{{ mleparameters[4] }}</td>
+                        <td>{{ mleparameters[5] }}</td>
+                    </tr>
+                    <tr class="table-light">
                         <td>cma-es(ml)</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{ cmaes[0] }}</td>
+                        <td>{{ cmaes[1] }}</td>
+                        <td>{{ cmaes[2] }}</td>
+                        <td>{{ cmaes[3] }}</td>
+                        <td>{{cmaes[4] }}</td>
+                        <td>{{cmaes[5] }}</td>
                     </tr>
 
                 </tbody>

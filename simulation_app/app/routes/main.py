@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template,url_for,redirect,request,session,flash
-from app.Lib.functions import threeweibullcdf,threeweibullpdf,mean_of_threeweibull,variance_of_threeweibull,inverse_of_threeweibull,datagenerator,calculate_mse
+from app.Lib.functions import threeweibullcdf,threeweibullpdf,mean_of_threeweibull,variance_of_threeweibull,inverse_of_threeweibull,datagenerator,calculate_mse,cma_es_func,mle_es_func
 import numpy as np
 main = Blueprint("main", __name__, url_prefix="/")
 
@@ -54,19 +54,19 @@ def nsimulation():
 def estimators():
     if request.method == "GET":
         liste=[]
-        return render_template("views/main/estimator.html" ,liste=liste, title="Distrosimulation")
+        mleparameters=[]
+        cmaes=[]
+        return render_template("views/main/estimator.html" ,liste=liste,mleparameters=  mleparameters, cmaes= cmaes, title="Distrosimulation")
     elif request.method == "POST":
         n= int(request.form["n"])
         alpha = float(request.form["alpha"])
         beta = float(request.form["beta"])
         eta = float(request.form["eta"])
         datas = datagenerator(n, alpha, beta, eta)
-        gercekortalama=mean_of_threeweibull(alpha, beta, eta)
-        gercekvaryans=variance_of_threeweibull(alpha, beta, eta)
-        uretilenortama=np.mean(datas)
-        uretilenvaryans=np.var(datas)
-        liste=[n,alpha,beta,eta,gercekortalama,gercekvaryans,uretilenortama,uretilenvaryans]
-        return render_template("views/main/estimator.html", liste=liste, title="Distrosimulation") 
+        mleparameters=mle_es_func(datas, alpha, beta, eta)
+        cmaes=cma_es_func(datas, alpha, beta, eta)
+        liste=[n,alpha,beta,eta]
+        return render_template("views/main/estimator.html", liste=liste,  mleparameters=  mleparameters, cmaes= cmaes, title="Distrosimulation") 
     else:
         return "Beklenmedik web istegi"
     

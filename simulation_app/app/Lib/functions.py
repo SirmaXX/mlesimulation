@@ -1,6 +1,10 @@
 
 import numpy as np
 from scipy.stats import weibull_min
+import cma
+from scipy.stats import ks_2samp
+from scipy.optimize import minimize
+import math 
 
 def threeweibullcdf(tvalue, alpha, beta, eta):
     assert all(val >= 0 for val in [alpha, beta, eta])
@@ -55,3 +59,90 @@ def calculate_mse(e_alpha,e_beta,e_eta,alpha,beta,eta):
     return mse
 
 
+
+def calculate_aic(nll, num_params):
+    aic = 2 * num_params - 2 * nll
+    return aic
+
+
+
+def pdf_threeweibull(tvalue, alpha, beta, eta):
+    pdf_values = np.where(tvalue > alpha, ((beta/eta)*((tvalue-alpha)/eta)**(beta-1)*np.exp(-((tvalue - alpha) / eta))), 0)
+    return pdf_values
+
+
+
+def neg_log_likelihood(params, data):
+    alpha, beta, eta = params
+    # Check parameter constraints
+    if any(param <= 0 for param in params):
+        return np.inf  # Return infinity for infeasible parameters
+    # Calculate negative log-likelihood
+    pdf_values = pdf_threeweibull(data, alpha, beta, eta)
+    nll = -np.sum(np.log(pdf_values[np.isfinite(pdf_values)]))  # Ignore non-finite values
+    return nll
+
+
+def  cma_es_func(data,alpha,beta,eta):
+# Sample data for demonstration
+ initial_guess = [alpha,beta,eta]
+ options = {'maxfevals': 1000}
+ std=math.sqrt(variance_of_threeweibull(alpha, beta, eta))
+ try:
+    res = cma.fmin(neg_log_likelihood, initial_guess, std, options=options, args=(data,))
+    print("Optimized Parameters:", res[0])
+    print(type(res[0]))
+
+     # Calculate AIC
+    optimized_nll = neg_log_likelihood(res[0], data)
+    num_params = len(initial_guess)
+    aic = calculate_aic(optimized_nll, num_params)
+   #  print("AIC:", aic)
+
+     # Calculate K-S statistic and p-value
+    optimized_cdf = np.cumsum(pdf_threeweibull(np.sort(data), *res[0])) / np.sum(pdf_threeweibull(np.sort(data), *res[0]))
+    ks_statistic, p_value = ks_2samp(np.linspace(0, 1, len(data)), optimized_cdf)
+    
+    # print("K-S Statistic:", ks_statistic)
+    # print("P-Value:", p_value)
+    
+    #liste=[res[0][0],res[0][1],res[0][2],aic,ks_statistic,p_value]
+    #print( liste)
+    optimized_parameters = res[0]
+    liste=[optimized_parameters[0],optimized_parameters[1],optimized_parameters[2],aic,ks_statistic,p_value]
+    return liste
+ except Exception as e:
+    print("Error during optimization:", e)
+
+
+
+
+def  mle_es_func(data,alpha,beta,eta):
+ initial_guess = [1.0, 1.0, 1.0]
+ options = {'maxfevals': 1000}
+ try:
+    res = minimize(neg_log_likelihood, initial_guess, args=(data,), method='L-BFGS-B')
+    optimized_params = res.x
+   # print(res)
+
+    # Calculate AIC
+    optimized_nll = neg_log_likelihood(optimized_params, data)
+    num_params = len(initial_guess)
+    aic = calculate_aic( optimized_nll , num_params)
+   # print("AIC:", aic)
+
+    # Calculate K-S test statistic and p-value
+    sorted_data = np.sort(data)
+    cdf_data = np.linspace(0, 1, len(data))
+    cdf_model = np.cumsum(pdf_threeweibull(sorted_data, *optimized_params)) / np.sum(pdf_threeweibull(sorted_data, *optimized_params))
+    ks_statistic, p_value = ks_2samp(cdf_data, cdf_model)
+
+    # Print K-S test result
+    #print("K-S Statistic:", ks_statistic)
+   # print("P-Value:", p_value)
+   # print("Optimized Parameters (MLE):", optimized_params)
+  #  print("Optimized Parameters (MLE):", optimized_params[0])
+    liste=[optimized_params[0],optimized_params[1],optimized_params[2],aic,ks_statistic,p_value]
+    return liste
+ except Exception as e:
+    print("Error during optimization:", e)

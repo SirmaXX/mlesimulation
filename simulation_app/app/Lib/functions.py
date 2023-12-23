@@ -44,3 +44,14 @@ def datagenerator(n, alpha, beta, eta):
     return dataset
 
 
+def calculate_mse(e_alpha,e_beta,e_eta,alpha,beta,eta):
+    assert all(val >= 0 for val in [e_alpha,e_beta,e_eta,alpha, beta, eta])
+
+
+    m_weibull= mean_of_threeweibull(alpha, beta, eta)
+    estimated_m_weibull= mean_of_threeweibull(e_alpha, e_beta, e_eta)
+    variance= variance_of_threeweibull(e_alpha, e_beta, e_eta)
+    mse = variance +(estimated_m_weibull - m_weibull)**2
+    return mse
+
+

@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template,url_for,redirect,request,session,flash
-from app.Lib.functions import threeweibullcdf,threeweibullpdf,mean_of_threeweibull,variance_of_threeweibull,inverse_of_threeweibull,datagenerator
+from app.Lib.functions import threeweibullcdf,threeweibullpdf,mean_of_threeweibull,variance_of_threeweibull,inverse_of_threeweibull,datagenerator,calculate_mse
 import numpy as np
 main = Blueprint("main", __name__, url_prefix="/")
 
@@ -18,7 +18,6 @@ def weibulldistrosimulation():
         alpha = float(request.form["alpha"])
         beta = float(request.form["beta"])
         eta = float(request.form["eta"])
-    
         return render_template("views/main/distrosimulation.html", alpha=alpha, beta=beta, eta=eta, title="Distrosimulation") 
     else:
         return "Beklenmedik web istegi"
@@ -46,3 +45,36 @@ def nsimulation():
         return render_template("views/main/nbased.html", liste=liste, title="Distrosimulation") 
     else:
         return "Beklenmedik web istegi"
+    
+
+
+
+
+@main.route("/estimators", methods=["GET", "POST"])
+def estimators():
+    if request.method == "GET":
+        liste=[]
+        return render_template("views/main/estimator.html" ,liste=liste, title="Distrosimulation")
+    elif request.method == "POST":
+        n= int(request.form["n"])
+        alpha = float(request.form["alpha"])
+        beta = float(request.form["beta"])
+        eta = float(request.form["eta"])
+        datas = datagenerator(n, alpha, beta, eta)
+        gercekortalama=mean_of_threeweibull(alpha, beta, eta)
+        gercekvaryans=variance_of_threeweibull(alpha, beta, eta)
+        uretilenortama=np.mean(datas)
+        uretilenvaryans=np.var(datas)
+        liste=[n,alpha,beta,eta,gercekortalama,gercekvaryans,uretilenortama,uretilenvaryans]
+        return render_template("views/main/estimator.html", liste=liste, title="Distrosimulation") 
+    else:
+        return "Beklenmedik web istegi"
+    
+
+
+
+
+
+@main.route("/presentation", methods=["GET", "POST"])
+def presentation():
+    return render_template("views/main/presentation.html", title="Homepage")

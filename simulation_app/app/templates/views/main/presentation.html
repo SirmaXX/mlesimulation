@@ -2,25 +2,21 @@
 {% block body %}
 
 
-<center>
-<div>
-    <object
-      data='https://pdfjs-express.s3-us-west-2.amazonaws.com/docs/choosing-a-pdf-viewer.pdf'
-      type="application/pdf"
-      width="100%"
-      height="1000px"
-    >
-
-      <iframe
-        src='https://pdfjs-express.s3-us-west-2.amazonaws.com/docs/choosing-a-pdf-viewer.pdf'
-        width="100%"
-        height="1000px"
-      >
-      <p>This browser does not support PDF!</p>
-      </iframe>
-    </object>
-  </div>
-
-</center>
+<div class="pdf-container">
+    <center>
+        <object
+            data='https://pdfjs-express.s3-us-west-2.amazonaws.com/docs/choosing-a-pdf-viewer.pdf'
+            type="application/pdf"
+            class="pdf-object"
+        >
+            <iframe
+                src='https://pdfjs-express.s3-us-west-2.amazonaws.com/docs/choosing-a-pdf-viewer.pdf'
+                class="pdf-iframe"
+            >
+                <p>This browser does not support PDF!</p>
+            </iframe>
+        </object>
+    </center>
+</div>
 
 {% endblock %}

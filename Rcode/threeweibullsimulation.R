@@ -1,3 +1,5 @@
+
+#3 parametreli weibull dağılım fonksiyonu
 threeweibullcdf <- function(tvalue, alpha, beta, eta) {
   stopifnot(all(alpha >= 0), all(beta >= 0), all(eta >= 0))
   
@@ -9,27 +11,28 @@ threeweibullcdf <- function(tvalue, alpha, beta, eta) {
 result <- threeweibullcdf(1, 0.5,2, 1.5)
 print(result)
  
+#3 parametreli weibull olasılık yoğunluk fonksiyonu
 threeweibullpdf <- function(tvalue, alpha,beta, eta) {
   stopifnot(all(alpha >= 0), all(beta >= 0), all(eta >= 0))
   pdf_values <- ifelse(tvalue > alpha, ((beta/eta)*((tvalue-alpha)/eta)^(beta-1)*exp(-((tvalue - alpha) / eta))), 0)
   return(pdf_values)
 }
 
-
 # pdf deneme
 result <- threeweibullpdf(1, 0.5, 2,1.5)
 print(result)
 
+#weibulun ortalama fonksiyonu
 mean_of_threeweibull <- function(alpha, beta, eta) {
   stopifnot(all(alpha >= 0), all(beta >= 0), all(eta >= 0))
   result <- eta * (gamma(1 + (1 / beta))) + alpha
   return(result)
 }
 
-# Test the function
+# ortalamanın testi
 print(mean_of_threeweibull(1, 1, 1))
 
-
+#weibulun varyans fonksiyonu
 variance_of_threeweibull<- function(alpha, beta, eta) {
   stopifnot(all(alpha >= 0), all(beta >= 0), all(eta >= 0))
   result <- (eta^2) * (gamma(1 + (2 / beta)) - (gamma(1 + (1 / beta)))^2) 
@@ -55,16 +58,23 @@ lnlikehoodthreeweibull<-function(tarray,alpha,beta, eta,n){
   }
 }
 
-lnlikehoodthreeweibull_l1<-function(tarray,alpha,beta, eta,n){
-  stopifnot(alpha >= 0, beta >= 0, eta >= 0,n>0)
-  result=0
-  for (i in n) {
-    result =result + (ln(beta)+ (beta-1)*ln(tarray[i]- alpha) -(beta*ln(eta)) -  ((tarray[i]-alpha)/eta)^(beta))
+lnlikehoodthreeweibull_l1 <- function(params, tarray) {
+  alpha <- params[1]
+  beta <- params[2]
+  eta <- 1
+  n <- length(tarray)
+  stopifnot(alpha >= 0, beta >= 0, eta >= 0, n > 0)
+  
+  result <- 0
+  for (i in 1:n) {
+    result <- result + (log(beta) + (beta - 1) * log(tarray[i] - alpha) - (beta * log(eta)) - ((tarray[i] - alpha) / eta) ^ (beta))
   }
+  
+  return(result)
 }
-
+################################# Grafik çizimi ###########################
 # Define the range of x values
-x <- seq(0.05, 5, 0.001)
+x <- seq(0.05, 1, 0.001)
 
 # Calculate the PDF values for different values of beta
 pdf_beta0 <- threeweibullpdf(x, 0, 0.5, 1.5)
@@ -94,15 +104,18 @@ ggplot(df, aes(x, pdf, color = beta, linetype = beta)) +
   scale_color_manual(values = c("blue", "red", "green", "pink","lightblue","purple")) +
   scale_linetype_manual(values = c(1, 1, 1, 1,1,1,1)) +
   theme(legend.position = "topright")
+################################# Grafik çizimi ###########################
+
 
 library(weibullness)
 
+#F(X)'in tersi (veri üretmek için tersini aldım)
 inverse_of_threeweibull <- function(p, alpha, beta, eta) {
   stopifnot(all(alpha >= 0), all(beta >= 0), all(eta >= 0))
   quantile_value <- alpha + eta * (-log(1 - p))^(1/beta)
   return(quantile_value)
 }
-
+# veri üretim fonksiyonu(uniformdan veri ürettik çünkü 0-1 arası bütün sayılar eşit olasılıkta çekiliyor)
 datagenerator <- function(n, alpha, beta, eta) {
   stopifnot(all(alpha >= 0), all(beta >= 0), all(eta >= 0), n > 0)
   generateddata <- runif(n = n, min = 0, max = 1)
@@ -114,11 +127,14 @@ datagenerator <- function(n, alpha, beta, eta) {
   return(dataset)
 }
 
-# Three-parameter Weibull
+# Tveri üretimi
 datas <- datagenerator(1000, 1, 1, 1)  # Increase the sample size
+
 print(mean(datas))
 print(var(datas))
-print(mse(datas))
+
+
+#################################### MLE METHOD ################################################
 # Fit Weibull distribution using MLE with error handling
 weibull_params <- tryCatch(
   {
@@ -130,5 +146,202 @@ weibull_params <- tryCatch(
   }
 )
 
-# Display the estimated parameters
-print(weibull_params)
+calculate_mse <- function(e_alpha, e_beta, e_eta,alpha, beta, eta) {
+ 
+  m_weibull<- mean_of_threeweibull(alpha, beta, eta)
+  estimated_m_weibull<-mean_of_threeweibull(e_alpha, e_beta, e_eta)
+  variance<-variance_of_threeweibull(e_alpha, e_beta, e_eta)
+  mse <- variance + (estimated_m_weibull - m_weibull)^2
+  return(mse)
+}
+
+# Generate data using true parameter values
+
+
+
+estimated_params <- weibull.mle(datas)
+
+# Extract estimated shape parameter
+estimated_alpha <- estimated_params$shape
+estimated_beta <- estimated_params$scale
+estimated_eta<-estimated_params$threshold
+
+# Calculate MSE 
+mse_alpha <- calculate_mse(estimated_alpha,estimated_beta,estimated_eta,1,1,1 )
+
+print(paste("True Alpha:", 1))
+print(paste("Estimated Alpha:", estimated_alpha))
+print(paste("MSE for Alpha:", mse_alpha))
+
+#################################### MLE METHOD ################################################
+
+
+
+#################################### least square regression  METHOD ################################################
+
+dataset<-datas
+
+# Fit a linear model using lm
+model <- lm(datas ~ 1 + I(datas^2))
+
+# Print the summary of the model
+summary(model)
+
+# Extract the estimated coefficients
+estimated_alpha_ls <- coef(model)[1]
+estimated_beta_ls <- coef(model)[2]
+estimated_eta_ls <- coef(model)[3]
+# Calculate MSE for least squares regression
+mse_alpha_ls <- calculate_mse(estimated_alpha_ls, estimated_beta_ls, 0, 1, 1, 1)
+
+# Print results
+print(paste("True Alpha:", 1))
+print(paste("Estimated Alpha (LS):", estimated_alpha_ls))
+print(paste("MSE for Alpha (LS):", mse_alpha_ls))
+
+
+
+
+#################################### least square regression METHOD ################################################
+
+
+
+#################################### weighted least squares regressionMETHOD ################################################
+
+wt <- 1 / lm(abs(model$residuals) ~ model$fitted.values)$fitted.values^2
+
+#perform weighted least squares regression
+wls_model <- lm(datas ~ 1 + I(datas^2), weights=wt)
+
+#view summary of model
+summary(wls_model)
+
+# Extract the estimated coefficients
+estimated_alpha_ls1 <- coef(wls_model)[1]
+estimated_beta_ls1 <- coef(wls_model)[2]
+estimated_eta_ls1 <- coef(wls_model)[3]
+# Calculate MSE for least squares regression
+mse_alpha_ls1 <- calculate_mse(estimated_alpha_ls1, estimated_beta_ls1, 0, 1, 1, 1)
+
+# Print results
+print(paste("True Alpha:", 1))
+print(paste("Estimated Alpha (LS):", estimated_alpha_ls1))
+print(paste("MSE for Alpha (LS):", mse_alpha_ls1))
+
+
+#################################### weighted least squares regression METHOD ################################################
+
+
+
+#################################### CMA-ES METHOD ################################################
+library(weibullness)
+library(rCMA)
+library(rJava)
+
+# Set seed and generate some example data
+set.seed(123)
+true_alpha <- 1
+true_beta <- 1
+
+isFeasible <- function(x) {  (sum(x) - length(x)) >= 0;  }
+
+# Create CMA-ES object
+cma <- cmaNew(propFile="CMAEvolutionStrategy.properties");
+
+cmaInit(cma,seed=42,dimension=2,initialX = c(1.0, 1.0), initialStandardDeviations=0.2);
+
+neg_log_likelihood <- function(params, data) {
+  alpha <- params[1]
+  beta <- params[2]
+  eta <- params[3]
+  
+  # Check parameter constraints
+  if (any(params <= 0)) {
+    return(Inf)  # Return infinity for infeasible parameters
+  }
+  
+  # Calculate negative log-likelihood
+  nll <- -sum(dweibull(datas, shape = beta, scale = alpha, log = TRUE))
+  return(nll)
+}
+
+# Run CMA-ES optimization
+res <-  cmaOptimDP(cma, neg_log_likelihood  ,iterPrint=100);
+
+# Print the optimized parameters
+print(paste("Optimized Parameters: ", res$bestX))
+
+optimized_alpha <- res[1]
+optimized_beta <- res[2]
+optimized_eta <- res[3]
+
+# Print the optimized parameters
+print(paste("Optimized Alpha: ", optimized_beta$bestX[1]))
+print(paste("Optimized Beta: ", optimized_beta$bestX[2]))
+print(paste("Optimized Eta: ", optimized_eta))
+
+
+
+
+
+
+
+
+
+
+
+############################## n tabanlı ################################
+variance_of_threeweibull<- function(alpha, beta, eta) {
+  stopifnot(all(alpha >= 0), all(beta >= 0), all(eta >= 0))
+  result <- (eta^2) * (gamma(1 + (2 / beta)) - (gamma(1 + (1 / beta)))^2) 
+  return(result)
+  
+}
+
+
+#weibulun ortalama fonksiyonu
+mean_of_threeweibull <- function(alpha, beta, eta) {
+  stopifnot(all(alpha >= 0), all(beta >= 0), all(eta >= 0))
+  result <- eta * (gamma(1 + (1 / beta))) + alpha
+  return(result)
+}
+
+
+#F(X)'in tersi (veri üretmek için tersini aldım)
+inverse_of_threeweibull <- function(p, alpha, beta, eta) {
+  stopifnot(all(alpha >= 0), all(beta >= 0), all(eta >= 0))
+  quantile_value <- alpha + eta * (-log(1 - p))^(1/beta)
+  return(quantile_value)
+}
+# veri üretim fonksiyonu(uniformdan veri ürettik çünkü 0-1 arası bütün sayılar eşit olasılıkta çekiliyor)
+datagenerator <- function(n, alpha, beta, eta) {
+  stopifnot(all(alpha >= 0), all(beta >= 0), all(eta >= 0), n > 0)
+  generateddata <- runif(n = n, min = 0, max = 1)
+  dataset <- c()
+  for (i in generateddata) {
+    xvalue <- inverse_of_threeweibull(i, alpha, beta, eta)
+    dataset <- append(dataset, xvalue)
+  }
+  return(dataset)
+}
+calculate_mse <- function(e_alpha, e_beta, e_eta,alpha, beta, eta) {
+  
+  m_weibull<- mean_of_threeweibull(alpha, beta, eta)
+  estimated_m_weibull<-mean_of_threeweibull(e_alpha, e_beta, e_eta)
+  variance<-variance_of_threeweibull(e_alpha, e_beta, e_eta)
+  mse <- variance + (estimated_m_weibull - m_weibull)^2
+  return(mse)
+}
+
+# Tveri üretimi
+datas <- datagenerator(1009, 1, 1, 1)  # Increase the sample size
+gercekortalama =mean_of_threeweibull (1,1,1)
+gercekvaryans=variance_of_threeweibull(1,1,1)
+cat("gercek ortalama:", gercekortalama, "\n")
+cat("gercek varyans:", gercekvaryans, "\n")
+print(mean(datas))
+print(var(datas))
+
+
+############################## n tabanlı ################################
+

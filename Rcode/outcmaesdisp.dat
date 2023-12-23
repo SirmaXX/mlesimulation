@@ -1,0 +1,116 @@
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 14:33:54 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 14:33:58 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 14:33:59 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 14:33:59 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 14:34:00 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 14:34:01 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 14:34:02 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 14:34:14 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 14:34:15 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:01:29 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:02:35 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:04:31 TRT 2023)
+(2,4)-CMA-ES(mu_eff=1.6), Ver="0.99.40", dimension=1, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:04:50 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:05:05 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:05:06 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:05:08 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:05:52 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:06:24 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:06:55 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:07:28 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:07:29 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:08:18 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:09:07 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:09:09 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:09:09 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:09:11 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:09:21 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:21:43 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:21:49 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:21:53 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:23:16 TRT 2023)
+ CMA-ES warning: setting seed has no effect at this point
+ CMA-ES error: initial x cannot be set anymore
+ CMA-ES warning: setting seed has no effect at this point
+ CMA-ES error: initial x cannot be set anymore
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:24:53 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:24:54 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:24:55 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:24:56 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:24:56 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:24:57 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:28:14 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:28:15 TRT 2023)
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:28:16 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:31:28 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:31:30 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:31:31 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:35:58 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:35:59 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:36:00 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:36:01 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:36:02 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:36:03 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:41:03 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:41:04 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:41:05 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:41:05 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:41:06 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:41:07 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:41:07 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:41:39 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:41:40 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:41:41 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:41:43 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:41:45 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:41:55 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:41:56 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:41:57 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:46:03 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:46:03 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:46:04 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:46:05 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:46:06 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 15:59:51 TRT 2023)
+ CMA-ES warning: flat fitness landscape, consider reformulation of fitness, step-size increased
+ CMA-ES warning: flat fitness landscape, consider reformulation of fitness, step-size increased
+ CMA-ES warning: flat fitness landscape, consider reformulation of fitness, step-size increased
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 16:03:19 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 16:30:34 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 16:30:44 TRT 2023)
+ CMA-ES warning: File 'CMAEvolutionStrategy.properties' not found, no options read
+(3,6)-CMA-ES(mu_eff=2.3), Ver="0.99.40", dimension=2, 0 diagonal iter., randomSeed=42 (Fri Dec 22 16:30:45 TRT 2023)

@@ -61,14 +61,4 @@ body{
 
 
 
-  .pdf-container {
-    width: 100%;
-    max-width: 1000px; /* You can adjust the maximum width as needed */
-    margin: 0 auto; /* Center the container horizontally */
-}
-
-.pdf-object,
-.pdf-iframe {
-    width: 100%;
-    height: 100vh; /* Set height to 100% of the viewport height */
-}
+  

@@ -64,6 +64,7 @@ def estimators():
         mleparameters=mle_es_func(datas, alpha, beta, eta)
         cmaes=cma_es_func(datas, alpha, beta, eta)
         leastsq=least_reg_func(datas, alpha, beta, eta)
+        print("leeast " ,leastsq)
         liste=[n,alpha,beta,eta]
         return render_template("views/main/estimator.html", liste=liste,  mleparameters=  mleparameters, cmaes= cmaes,leastsq=leastsq,title="Distrosimulation") 
     else:

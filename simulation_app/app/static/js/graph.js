@@ -61,14 +61,18 @@ function datagenerator(n, alpha, beta, eta) {
 
 
 function weibullPDF(x, alpha, beta, eta) {
+    if (x > alpha) {
     return (beta / eta) * Math.pow((x - alpha) / eta, beta - 1) * Math.exp(-Math.pow((x - alpha) / eta, beta));
+    }else{
+        return 0;
+    }
 }
 
 function sequencebuilder(start,end,step) {
 
     var start = 0.05;
     var end = 5;
-    var step = 0.001;
+
     
     // Create an array of values
     var x = [];
@@ -84,10 +88,14 @@ function WeibullGraph(canvasid, alpha, beta, eta) {
 
     const mu = mean_of_threeweibull(alpha, beta, eta);
     const sigmas = variance_of_threeweibull(alpha, beta, eta);
-
-    var xValues = sequencebuilder(0.5, 1, 0.1);
+    const std=Math.sqrt(sigmas);
+    const high = mu + 3 * std;
+   
+    var xValues = sequencebuilder(alpha, high, 0.1);
    
     var yValues = xValues.map(function(x) {
+        var pdfValue = weibullPDF(x, alpha, beta, eta).toFixed(2);
+        console.log("x:", x, "PDF:", pdfValue);
         return weibullPDF(x, alpha, beta, eta).toFixed(2);
     });
 

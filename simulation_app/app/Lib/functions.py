@@ -118,7 +118,7 @@ def  cma_es_func(data,alpha,beta,eta):
 
 
 def  mle_es_func(data,alpha,beta,eta):
- initial_guess = [1.0, 1.0, 1.0]
+ initial_guess = [alpha,beta,eta]
  options = {'maxfevals': 1000}
  try:
     res = minimize(neg_log_likelihood, initial_guess, args=(data,), method='L-BFGS-B')

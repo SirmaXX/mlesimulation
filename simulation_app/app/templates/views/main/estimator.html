@@ -34,9 +34,9 @@
                         <th>alpha</th>
                         <th>beta</th>
                         <th>eta</th>
-                        <th>k-s</th>
                         <th>aic</th>
-                        <th>MSE </th>
+                        <th>k-s</th>
+                        <th>k-s p value </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -68,6 +68,7 @@
                         <td>{{cmaes[4] }}</td>
                         <td>{{cmaes[5] }}</td>
                     </tr>
+                 
                     <tr class="table-light">
                         <td>least square method</td>
                         <td>{{ leastsq[0] }}</td>
@@ -77,7 +78,33 @@
                         <td>{{leastsq[4] }}</td>
                         <td>{{leastsq[5] }}</td>
                     </tr>
-
+                    <tr class="table-light">
+                        <td>Wls</td>
+                        <td>{{ wls_one[0] }}</td>
+                        <td>{{wls_one[1] }}</td>
+                        <td>{{ wls_one[2] }}</td>
+                        <td>{{ wls_one[3] }}</td>
+                        <td>{{wls_one[4] }}</td>
+                        <td>{{wls_one[5] }}</td>
+                    </tr>
+                    <tr class="table-light">
+                        <td>Wls bergman</td>
+                        <td>{{ wls_bergmann[0] }}</td>
+                        <td>{{ wls_bergmann[1] }}</td>
+                        <td>{{ wls_bergmann[2] }}</td>
+                        <td>{{ wls_bergmann[3] }}</td>
+                        <td>{{wls_bergmann[4] }}</td>
+                        <td>{{wls_bergmann[5] }}</td>
+                    </tr>
+                    <tr class="table-light">
+                        <td>Wls F&T</td>
+                        <td>{{ wls_ftt[0] }}</td>
+                        <td>{{ wls_ftt[1] }}</td>
+                        <td>{{ wls_ftt[2] }}</td>
+                        <td>{{ wls_ftt[3] }}</td>
+                        <td>{{wls_ftt[4] }}</td>
+                        <td>{{wls_ftt[5] }}</td>
+                    </tr>
 
                 </tbody>
             </table>

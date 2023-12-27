@@ -5,14 +5,14 @@
 <center>
 <div>
     <object
-      data='https://pdfjs-express.s3-us-west-2.amazonaws.com/docs/choosing-a-pdf-viewer.pdf'
+      data="{{ url_for('static', filename = 'sunum.pdf') }}" 
       type="application/pdf"
       width="500"
       height="678"
     >
 
       <iframe
-        src='https://pdfjs-express.s3-us-west-2.amazonaws.com/docs/choosing-a-pdf-viewer.pdf'
+        src="{{ url_for('static', filename = 'sunum.pdf') }}" 
         width="500"
         height="678"
       >

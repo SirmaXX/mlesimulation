@@ -12,16 +12,22 @@ from scipy.optimize import minimize
 
 def threeweibullcdf(tvalue, alpha, beta, eta):
     assert all(val >= 0 for val in [alpha, beta, eta])
+    if(tvalue>alpha):
+        return np.exp(-((tvalue - alpha) / eta) ** beta)
+    else:
+        return 0
     
-    cdf_values = np.where(tvalue > alpha, 1 - np.exp(-((tvalue - alpha) / eta) ** beta), 0)
-    return cdf_values
+
 
 
 def threeweibullpdf(tvalue, alpha, beta, eta):
     assert all(val >= 0 for val in [alpha, beta, eta])
+    if(tvalue>alpha):
+        return (beta / eta) * ((tvalue - alpha) / eta)** (beta - 1) * np.exp(-((tvalue - alpha) / eta))
+    else:
+        return 0
+     
     
-    pdf_values = np.where(tvalue > alpha, (beta / eta) * ((tvalue - alpha) / eta) ** (beta - 1) * np.exp(-((tvalue - alpha) / eta)), 0)
-    return pdf_values
 
 
 
@@ -76,18 +82,30 @@ def pdf_threeweibull(tvalue, alpha, beta, eta):
 
 
 
+def log_likelihood(params, data):
+    #assert np.all(params >= 0)
+    alpha, beta, eta = params
+    result_sum = 0
+    n = len(data)
+    
+    for i in range(1, n + 1):
+        term = 0  # Initialize term to zero
+        
+        if data[i - 1] > alpha:
+            term = np.log(beta) + (beta - 1) * np.log(data[i - 1] - alpha) - beta * np.log(eta) - ((data[i - 1] - alpha) / eta) ** beta
+        
+        result_sum += term
+  
+    return result_sum
+
+
 def neg_log_likelihood(params, data):
     alpha, beta, eta = params
-    # Check parameter constraints
-    if any(param <= 0 for param in params):
-        return np.inf  # Return infinity for infeasible parameters
-    # Calculate negative log-likelihood
-    pdf_values = pdf_threeweibull(data, alpha, beta, eta)
-    nll = -np.sum(np.log(pdf_values[np.isfinite(pdf_values)]))  # Ignore non-finite values
+    nll = -log_likelihood(params, data) # Ignore non-finite values
     return nll
 
 
-def  cma_es_func(data,alpha,beta,eta):
+def cma_es_func(data,alpha,beta,eta):
 # Sample data for demonstration
  initial_guess = [alpha,beta,eta]
  options = {'maxfevals': 1000}
@@ -343,3 +361,4 @@ def wls_ft(data,alpha,beta,eta):
     return liste
  except Exception as e:
     print("Error during optimization:", e)
+

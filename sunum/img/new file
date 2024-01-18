@@ -1,0 +1,59 @@
+F(t,\alpha,\beta,\eta)= \left\{ \begin{array}{cl}
+1-e^{-((t-\alpha)/ \eta)} &  t > \alpha \\
+0 &  t \leq \alpha
+\end{array} \right.
+
+
+
+f(t,\alpha,\beta,\eta)= \left\{ \begin{array}{cl}
+      \frac{\beta}{\eta}(\frac{t-\alpha}{\eta})^{\beta-1} e^{-((t-\alpha)/ \eta)}&  t > \alpha \\
+0 &  t \leq \alpha
+\end{array} \right.
+
+
+\mu=\eta\Gamma(1+\frac{1}{\beta})+\alpha
+
+
+\sigma^2=\eta^2[\Gamma(1+\frac{2}{\beta})-\Gamma^2(1+\frac{1}{\beta}) ]
+
+
+
+
+\frac{\sigma l(\theta)}{\sigma^2(\theta)}ln(L(\theta,(x1,x2,..xn)))
+
+
+\displaystyle{a=\hat{y} \text{ and } \hat{b}=\dfrac{\sum\limits_{i=1}^n (x_i-\bar{x})(y_i-\bar{y})}{\sum\limits_{i=1}^n (x_i-\bar{x})^2}}
+
+\displaystyle{a=\bar{y} \text{ and } \hat{b}=\dfrac{\sum\limits_{i=1}^n (x_i-\bar{x})(y_i-\bar{y})}{\sum\limits_{i=1}^n (x_i-\bar{x})^2}}
+
+
+
+
+
+
+wls
+Y_i=\beta_0+\beta_1X_i+\epsilon_İ \quad \epsilon_i\sim N(0,\sigma^2/wi)
+
+
+
+S_w(\beta_0,\beta_1)=\sum_{i=1}^{n}w_i(y_i-\beta_0-\beta_1x_i)^2
+
+
+\hat{\beta_0}=\bar{y_w}-\hat{\beta_1}\bar{x_w} \\
+\hat{\beta_1}=\frac{\sum_{}^{}wi(xi-\bar{x_w})(yi-\bar{y_w})}{\sum_{}^{}wi(xi-\bar{x_w})^2}
+
+
+
+
+\bar{x_w}=\frac{\sum_{}^{}w_ix_i}{\sum_{}^{}w_i} \quad \bar{y_w}=\frac{\sum_{}^{}w_iy_i}{\sum_{}^{}w_i}
+
+
+Bergman
+W(t_{(i)})=[(1-\hat{F}(t_{(i)}))ln((1-\hat{F}(t_{(i)}))]^2
+
+
+
+
+W(t_{(i)})=3.3F(t_{(i)})-27.5[1-(1-F(t_{(i)}))^{0.025}]
+
+

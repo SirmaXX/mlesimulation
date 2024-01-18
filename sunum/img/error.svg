@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Copyright 2017 mathsisfun.com -->
+
+<svg
+   width="248"
+   height="231.8"
+   version="1.1"
+   style="font-family:'Comic Sans MS'; font-size:24.3px; stroke-width:1pt;"
+   id="svg90"
+   sodipodi:docname="least-squares2.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview92"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="2.4935289"
+     inkscape:cx="108.07976"
+     inkscape:cy="112.89222"
+     inkscape:window-width="1422"
+     inkscape:window-height="719"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg90" />
+  <defs
+     id="defs32">
+    <marker
+       id="aa1"
+       style="overflow:visible;"
+       orient="auto">
+      <path
+         transform="scale(0.8) rotate(180) translate(12.5,0)"
+         style="fill:#009100; stroke:#009100;"
+         d="M 0,0 L 5,-5 L -12.5,0 L 5,5 L 0,0 z "
+         id="path2" />
+    </marker>
+    <marker
+       id="aa2"
+       style="overflow:visible;"
+       orient="auto">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#0000ff; stroke:#0000ff;"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path25" />
+    </marker>
+  </defs>
+  <path
+     style="marker-end:url(#aa1); fill:none; fill-opacity:0.75; stroke:#009100; stroke-width:1.55;"
+     d="M 34.2,231.8 V 8.1"
+     id="path38" />
+  <path
+     style="marker-end:url(#aa2); fill:none; stroke:#0000ff; stroke-width:1.55;"
+     d="M 0,194.8 H 242.8"
+     id="path40" />
+  <text
+     x="111.6"
+     y="216.9"
+     transform="scale(0.998821,1.00118)"
+     style="fill:#0000ff;stroke-width:0.39;-inkscape-font-specification:'Trebuchet MS Italic';font-family:'Trebuchet MS';font-weight:normal;font-style:italic;font-stretch:normal;font-variant:normal;font-size:24.00000469px"
+     id="text42">5</text>
+  <text
+     x="192.1"
+     y="217.1"
+     transform="scale(0.998821,1.00118)"
+     style="fill:#0000ff;stroke-width:0.39;-inkscape-font-specification:'Trebuchet MS Italic';font-family:'Trebuchet MS';font-weight:normal;font-style:italic;font-stretch:normal;font-variant:normal;font-size:24.00000469px"
+     id="text44">10</text>
+  <text
+     x="26.5"
+     y="217.1"
+     transform="scale(0.998821,1.00118)"
+     style="fill:#0000ff;stroke-width:0.39;-inkscape-font-specification:'Trebuchet MS Italic';font-family:'Trebuchet MS';font-weight:normal;font-style:italic;font-stretch:normal;font-variant:normal;font-size:24.00000469px"
+     id="text46">0</text>
+  <text
+     x="11.7"
+     y="118"
+     transform="scale(0.998821,1.00118)"
+     style="fill:#009100;stroke-width:0.39;-inkscape-font-specification:'Trebuchet MS Italic';font-family:'Trebuchet MS';font-weight:normal;font-style:italic;font-stretch:normal;font-variant:normal;font-size:24.00000469px"
+     id="text48">5</text>
+  <text
+     x="2.4"
+     y="32.5"
+     transform="scale(0.998821,1.00118)"
+     style="fill:#009100;stroke-width:0.39;-inkscape-font-specification:'Trebuchet MS Italic';font-family:'Trebuchet MS';font-weight:normal;font-style:italic;font-stretch:normal;font-variant:normal;font-size:24.00000469px"
+     id="text50">10</text>
+  <text
+     x="11.4"
+     y="202.7"
+     transform="scale(0.998821,1.00118)"
+     style="fill:#009100;stroke-width:0.39;-inkscape-font-specification:'Trebuchet MS Italic';font-family:'Trebuchet MS';font-weight:normal;font-style:italic;font-stretch:normal;font-variant:normal;font-size:24.00000469px"
+     id="text52">0</text>
+  <circle
+     cx="208"
+     cy="47.8"
+     r="3.99825"
+     style="fill:black; stroke:#19aeff; stroke-width:4.5; stroke-linecap:round;"
+     id="circle54" />
+  <text
+     x="222.3"
+     y="182.6"
+     style="font-family:'Trebuchet MS';font-weight:normal;font-size:28px;font-style:italic;fill:#0000ff;stroke-width:0.39px;-inkscape-font-specification:'Trebuchet MS Italic';font-stretch:normal;font-variant:normal"
+     id="text56">x</text>
+  <text
+     x="41.8"
+     y="26.9"
+     transform="scale(1.07847,0.927243)"
+     style="font-family:'Trebuchet MS';font-weight:normal;font-size:27.99994739px;font-style:italic;fill:#009100;stroke-width:0.39px;-inkscape-font-specification:'Trebuchet MS Italic';font-stretch:normal;font-variant:normal"
+     id="text58">y</text>
+  <circle
+     cx="175.4"
+     cy="102.3"
+     r="3.99825"
+     style="fill:black; stroke:#19aeff; stroke-width:4.5; stroke-linecap:round;"
+     id="circle60" />
+  <circle
+     cx="120.8"
+     cy="124.9"
+     r="3.99825"
+     style="fill:black; stroke:#19aeff; stroke-width:4.5; stroke-linecap:round;"
+     id="circle62" />
+  <circle
+     cx="84.7"
+     cy="95.2"
+     r="3.99825"
+     style="fill:black; stroke:#19aeff; stroke-width:4.5; stroke-linecap:round;"
+     id="circle64" />
+  <circle
+     cx="55"
+     cy="167"
+     r="3.99825"
+     style="fill:black; stroke:#19aeff; stroke-width:4.5; stroke-linecap:round;"
+     id="circle66" />
+  <path
+     style="fill:none;stroke:#005c94;stroke-width:2.12"
+     d="M 39.4,158 221.7,55.1"
+     id="path68" />
+  <path
+     style="fill:none; stroke:#ff0000; stroke-width:1.17;"
+     d="m 208,47.8 c 0,5.2 0,10.8 0,15.6"
+     id="path70" />
+  <path
+     style="fill:none; stroke:#ff0000; stroke-width:1.17;"
+     d="m 175.4,81.1 c 0,7.1 0,14.8 0,21.2"
+     id="path72" />
+  <path
+     style="fill:none; stroke:#ff0000; stroke-width:1.17;"
+     d="m 120.8,112.8 c 0,4 0,8.4 0,12"
+     id="path74" />
+  <path
+     style="fill:none; stroke:#ff0000; stroke-width:1.17;"
+     d="m 84.7,95.2 c 0,12.2 0,25.5 0,36.6"
+     id="path76" />
+  <path
+     style="fill:none; stroke:#ff0000; stroke-width:1.17;"
+     d="m 55,149 c 0,6 0,12.5 0,18"
+     id="path78" />
+  <text
+     x="56.9"
+     y="157.7"
+     style="font-family:'Trebuchet MS';font-size:13.8px;font-style:italic;fill:#ff0000;stroke-width:1px;-inkscape-font-specification:'Trebuchet MS Italic';font-weight:normal;font-stretch:normal;font-variant:normal"
+     id="text80">error</text>
+  <text
+     x="47.9"
+     y="115.4"
+     style="font-family:'Trebuchet MS';font-size:13.8px;font-style:italic;fill:#ff0000;stroke-width:1px;-inkscape-font-specification:'Trebuchet MS Italic';font-weight:normal;font-stretch:normal;font-variant:normal"
+     id="text82">error</text>
+  <text
+     x="122.7"
+     y="119.6"
+     style="font-family:'Trebuchet MS';font-size:13.8px;font-style:italic;fill:#ff0000;stroke-width:1px;-inkscape-font-specification:'Trebuchet MS Italic';font-weight:normal;font-stretch:normal;font-variant:normal"
+     id="text84">error</text>
+  <text
+     x="177.2"
+     y="93"
+     style="font-family:'Trebuchet MS';font-size:13.8px;font-style:italic;fill:#ff0000;stroke-width:1px;-inkscape-font-specification:'Trebuchet MS Italic';font-weight:normal;font-stretch:normal;font-variant:normal"
+     id="text86">error</text>
+  <text
+     x="166"
+     y="59.3"
+     style="font-family:'Trebuchet MS';font-size:13.8px;font-style:italic;fill:#ff0000;stroke-width:1px;-inkscape-font-specification:'Trebuchet MS Italic';font-weight:normal;font-stretch:normal;font-variant:normal"
+     id="text88">error</text>
+</svg>

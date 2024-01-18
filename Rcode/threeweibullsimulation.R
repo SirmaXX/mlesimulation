@@ -129,51 +129,74 @@ datagenerator <- function(n, alpha, beta, eta) {
 
 # Tveri üretimi
 datas <- datagenerator(1000, 1, 1, 1)  # Increase the sample size
-
+initial_guess <- c(1, 1, 1)
 print(mean(datas))
 print(var(datas))
 
 
 #################################### MLE METHOD ################################################
-# Fit Weibull distribution using MLE with error handling
-weibull_params <- tryCatch(
-  {
-    weibull.mle(datas)
-  },
-  error = function(e) {
-    message("Error during MLE estimation:", e)
-    NULL
-  }
-)
 
-calculate_mse <- function(e_alpha, e_beta, e_eta,alpha, beta, eta) {
- 
-  m_weibull<- mean_of_threeweibull(alpha, beta, eta)
-  estimated_m_weibull<-mean_of_threeweibull(e_alpha, e_beta, e_eta)
-  variance<-variance_of_threeweibull(e_alpha, e_beta, e_eta)
-  mse <- variance + (estimated_m_weibull - m_weibull)^2
-  return(mse)
-}
-
-# Generate data using true parameter values
-
-
-
-estimated_params <- weibull.mle(datas)
-
-# Extract estimated shape parameter
-estimated_alpha <- estimated_params$shape
-estimated_beta <- estimated_params$scale
-estimated_eta<-estimated_params$threshold
-
-# Calculate MSE 
-mse_alpha <- calculate_mse(estimated_alpha,estimated_beta,estimated_eta,1,1,1 )
-
-print(paste("True Alpha:", 1))
-print(paste("Estimated Alpha:", estimated_alpha))
-print(paste("MSE for Alpha:", mse_alpha))
 
 #################################### MLE METHOD ################################################
+
+
+#F(X)'in tersi (veri üretmek için tersini aldım)
+# Inverse of threeweibull function
+inverse_of_threeweibull <- function(p, alpha, beta, eta) {
+  stopifnot(all(alpha >= 0), all(beta >= 0), all(eta >= 0))
+  quantile_value <- alpha + eta * (-log(1 - p))^(1/beta)
+  return(quantile_value)
+}
+
+# Data generation function
+datagenerator <- function(n, alpha, beta, eta) {
+  stopifnot(all(alpha >= 0), all(beta >= 0), all(eta >= 0), n > 0)
+  generated_data <- runif(n, min = 0, max = 1)
+  dataset <- sapply(generated_data, function(i) inverse_of_threeweibull(i, alpha, beta, eta))
+  return(dataset)
+}
+
+# Log-likelihood function
+log_likelihood <- function(params, data) {
+  alpha <- params[1]
+  beta <- params[2]
+  eta <- params[3]
+  
+  result_sum <- 0
+  n <- length(data)
+  
+  for (i in 1:n) {
+    term <- 0  # Initialize term to zero
+    
+    if (data[i] > alpha) {
+      term <- log(beta) + (beta - 1) * log(data[i] - alpha) - beta * log(eta) - ((data[i] - alpha) / eta)^beta
+    }
+    
+    result_sum <- result_sum + term
+  }
+  
+  return(result_sum)
+}
+
+# Negative log-likelihood function
+neg_log_likelihood <- function(params, data) {
+  nll <- -log_likelihood(params, data)
+  
+  if (!is.finite(nll)) {
+    # If non-finite value encountered, return a large positive value
+    return(1e10)
+  }
+  
+  return(nll)
+}
+
+# Data generation and optimization
+datas <- datagenerator(1000, 1, 1, 1)  # Increase the sample size
+initial_guess <- c(1, 1, 1)
+
+# Minimize the negative log-likelihood using L-BFGS-B method
+res <- optim(par = initial_guess, fn = neg_log_likelihood, data = datas, method = "L-BFGS-B")
+optimized_params <- res$par
 
 
 

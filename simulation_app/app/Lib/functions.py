@@ -362,3 +362,22 @@ def wls_ft(data,alpha,beta,eta):
  except Exception as e:
     print("Error during optimization:", e)
 
+
+
+
+## İNVERSE CHİ SQUARE DİSTRİBUTİON
+    
+
+
+def mean_of_inversechi(v):
+    if v > 2:
+        return 1 / (v - 2)
+    else:
+        return 0
+
+
+def variance_of_inversechi(v):
+    if v > 4:
+        return 2 / ((v - 2) ** 2 * (v - 4))
+    else:
+        return 0

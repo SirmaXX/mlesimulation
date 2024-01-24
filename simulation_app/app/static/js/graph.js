@@ -127,3 +127,91 @@ function WeibullGraph(canvasid, alpha, beta, eta) {
         }
     });
 }
+
+
+/*      İnverse chisquare distribution     */
+
+
+function mean_of_inversechi(v) {
+    if (v > 2) {
+    return 1/(v-2);
+    }else{
+     return 0;
+    }
+
+}
+
+
+
+
+function variance_of_inversechi(v) {
+    if (v > 2) {
+    return 2/(Math.pow(v-2,2) * (v-4));
+    }else{
+     return 0;
+    }
+
+}
+
+
+
+function inverseChiSquarePDF(x, v) {
+    if (x <= 0 || v <= 0) {
+        throw new Error("Both x and degrees of freedom (v) must be greater than 0");
+    }
+
+    const numerator = Math.pow(2, -v / 2);
+    const denominator = jStat.gammafn(v / 2);
+    const exponent = -1 / (2 * x);
+
+    const pdfValue = (numerator / denominator) * Math.pow(x, -(v / 2) - 1) * Math.exp(exponent);
+
+    return pdfValue;
+}
+
+
+
+function  inverseChiSquareGraph(canvasid, v) {
+
+    const mu = mean_of_inversechi(v);
+    const sigmas = variance_of_inversechi(v);
+    const std=Math.sqrt(sigmas);
+    const high = mu + 3 * std;
+   
+    var xValues = sequencebuilder(0, high, 0.1);
+   
+    var yValues = xValues.map(function(x) {
+        var pdfValue =inverseChiSquarePDF(x, v).toFixed(2);
+        console.log("x:", x, "PDF:", pdfValue);
+        return inverseChiSquarePDF(x,v).toFixed(2);
+    });
+
+    // Create a line chart
+
+    new Chart("" + canvasid + "",{
+        type: 'line',
+        data: {
+            labels: xValues,
+            datasets: [{
+                label: 'İnverse Chi Square PDF plot',
+                data: yValues,
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                fill: false,
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom'
+                },
+                y: {
+                    type: 'linear',
+                    position: 'left'
+                }
+            }
+        }
+    });
+}
+

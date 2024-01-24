@@ -1,0 +1,39 @@
+{% extends "assets/layout.html" %}
+{% block body %}
+
+
+<div class=" container p-12">
+
+
+    <div class=" row p-12">
+
+        <h5>Inverse chi square simulation</h5>
+        <div class="col-md-6 col-sm-12">
+            <form method="post" action="/incchidistro">
+                v <input type="number" class="form-control"  min="0" step="any" name="v" required
+                    placeholder={{v}}><br>
+        
+                <input type="submit" class="btn btn-primary" value="Gonder">
+            </form>
+        </div>
+        <div class="col-md-6 col-sm-12">
+
+            <canvas id="invchi2" style="width:100%;max-width:600px;"></canvas>
+        </div>
+        <p>mean : {{ mean }}</p>
+        <p>variance : {{ variance }}</p>
+    </div>
+
+
+</div>
+
+
+<script>
+
+inverseChiSquareGraph("invchi2", {{ v }});
+
+</script>
+
+
+
+{% endblock %}

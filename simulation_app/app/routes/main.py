@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template,url_for,redirect,request,session,flash
-from app.Lib.functions import threeweibullcdf,threeweibullpdf,mean_of_threeweibull,variance_of_threeweibull,inverse_of_threeweibull,datagenerator,calculate_mse,cma_es_func,mle_es_func,least_reg_func,wls,wls_bergman,wls_ft
-
+from app.Lib.functions import mean_of_threeweibull,variance_of_threeweibull,datagenerator,mle_es_func,least_reg_func,wls,wls_bergman,wls_ft
+from app.Lib.functions import cma_es_func,mean_of_inversechi,variance_of_inversechi
 import numpy as np
 main = Blueprint("main", __name__, url_prefix="/")
 
@@ -24,6 +24,20 @@ def weibulldistrosimulation():
         return "Beklenmedik web istegi"
     
 
+
+
+@main.route("/incchidistro", methods=["GET", "POST"])
+def incchidistro():
+    if request.method == "GET":
+        return render_template("views/main/inchidistrosimulation.html")
+    elif request.method == "POST":
+        v = float(request.form["v"])
+        mean= mean_of_inversechi(v)
+        variance= variance_of_inversechi(v)
+        return render_template("views/main/inchidistrosimulation.html", v=v, mean=mean,variance=variance,  title="Distrosimulation") 
+    else:
+        return "Beklenmedik web istegi"
+    
 
 
 
